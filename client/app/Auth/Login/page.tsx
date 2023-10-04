@@ -11,7 +11,7 @@ import Cookies from 'js-cookie';
 export default function Login(){
     const [ form, setForm ] = useState({
         userName: '',
-        password: ''
+        password: '',
     })
     const [ error, setError ] = useState<string | null>(null);
 
@@ -29,7 +29,7 @@ export default function Login(){
             Cookies.set('userName', userName);
             setForm({userName: '', password: ''})
             setError(null);
-            window.location.pathname = '/';
+            window.location.pathname = "/";
         }catch(err: any){
             setError(err.response.data.message)
         }

@@ -35,7 +35,7 @@ export default function Post({params}:any){
     useEffect(() => {
         axios.get(POST + postId).then((data) => setPost(data.data.data.foundPost))
         axios.get(COMMENTS+postId).then((data) => setComments(data.data.data?.comments))
-    }, [comments, setComments])
+    }, [postId])
 
     const handleComment = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const {name, value} = e.target;

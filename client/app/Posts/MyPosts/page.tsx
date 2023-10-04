@@ -13,7 +13,7 @@ export default function MyPosts(){
     const userName = Cookies.get('userName');
     useEffect(() => {
         axios.get(MY_POSTS + userName).then((data) => setPosts(data.data.data.posts))
-    }, [posts, setPosts])
+    }, [userName])
 
     return(
         <>

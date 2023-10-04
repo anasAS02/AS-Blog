@@ -33,7 +33,7 @@ export default function EditPost({params}: any){
             }
         }
         fetchData();
-    }, [])
+    }, [postId])
 
 
     const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
