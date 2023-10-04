@@ -11,7 +11,7 @@ const GlobalContext = createContext<contextProps>({
     setIsLoggedIn: (): boolean => false,
 });
 
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalContextProvider = ({ children }: any) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     return(

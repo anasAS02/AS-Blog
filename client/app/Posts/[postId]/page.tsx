@@ -19,7 +19,7 @@ export default function Post({params}:any){
     const userName = Cookies.get('userName');
     const [post, setPost] = useState<any>();
     const [comment, setComment] = useState<string>('')
-    const [comments, setComments] = useState<[]>([]);
+    const [comments, setComments] = useState<commentProps[]>([]);
     const [oldComment, setOldComment] = useState<any>()
     const [editComment, setEditComment] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
