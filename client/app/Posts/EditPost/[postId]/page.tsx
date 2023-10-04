@@ -103,11 +103,11 @@ export default function EditPost({params}: any){
             inputProps={{ accept: 'image/*' }}
             />
                 <JoditEditor
+                    className='w-full h-full text-black bg-black'
                     ref={editor}
                     value={content}
                     onBlur={(newContent) => setContent(newContent)}
                     onChange={(newContent) => setContent(newContent)}
-                    className='w-full h-full text-black'
                     />
                     <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
                     submit</button>

@@ -1,4 +1,4 @@
-export const BASE_URL = `http://localhost:4000/api/`;
+export const BASE_URL = `https://as-blog-gr5w.onrender.com/api/`;
 
 export const REGISTER = `${BASE_URL}auth/register`;
 export const LOGIN = `${BASE_URL}auth/login`;
@@ -10,7 +10,7 @@ export const MY_POSTS = `${BASE_URL}posts/myPosts/`;
 export const CREATE_POST = `${BASE_URL}posts/create`;
 export const UPDATE_POST = `${BASE_URL}posts/`;
 export const DELETE_POST = `${BASE_URL}posts/`;
-export const SHOW_IMG = `http:\\localhost:4000/uploads/`;
+export const SHOW_IMG = `https://as-blog-gr5w.onrender.com/uploads/`;
 
 export const SEARCH = `${BASE_URL}Posts/search?keyword=`;
 export const COMMENTS = `${BASE_URL}comments/show/`;

@@ -84,7 +84,7 @@ export default function Post({params}:any){
     return(
         <div className='w-full lg-h-full flex flex-col text-white mt-36 max-md:mt-56'>
             <div className='w-full'>
-                <Image src={SHOW_IMG + post?.thumbnail} width={100} height={100} layout="responsive" className='rounded-md mix-blend-hard-light' alt='post thumbnail'/>
+                <Image src={SHOW_IMG + post?.thumbnail} width={600} height={100} className='w-full rounded-md mix-blend-hard-light' alt='post thumbnail'/>
             </div>
             <div className='h-full p-14' dangerouslySetInnerHTML={{ __html: post?.content }}>
             </div>
