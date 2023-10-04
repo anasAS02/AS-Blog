@@ -62,7 +62,7 @@ export default function Login(){
             >
                 Login
             </Button>
-            <span className='text-sm ml-3 text-black'>Don't have an account yet? <Link href='/Auth/Register' className='underline hover:text-yellow-500 duration-200'>Sign up now!</Link></span>
+            <span className='text-sm ml-3 text-black'>Don&apos;t forget to log in! <Link href='/Auth/Register' className='underline hover:text-yellow-500 duration-200'>Sign up now!</Link></span>
             {error && <p className='text-red-500 text-md mt-3'>{error}</p>}
             </div>
         </div>
