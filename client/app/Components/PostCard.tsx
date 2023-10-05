@@ -39,6 +39,7 @@ export default function PostCard(props: PostCardProps){
     const handleDelete = async () => {
         try{
             await axios.delete(DELETE_POST + postId);
+            location.reload();
         }catch(err){
             console.log(err)
         }
