@@ -1,5 +1,4 @@
 'use client'
-
 import { POSTS } from "@/utils/apis";
 import axios from "axios";
 import { useEffect, useState } from "react";
