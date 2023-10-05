@@ -6,7 +6,6 @@ import { SEARCH } from '@/utils/apis';
 import PostCard, { postProps } from "../Components/PostCard";
 
 const SearchResult = () => {
-  const router = useSearchParams();
   const [posts, setPosts] = useState<null | []>(null);
   const searchParams = useSearchParams()
  

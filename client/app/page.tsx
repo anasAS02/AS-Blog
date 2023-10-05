@@ -1,8 +1,3 @@
-'use client'
-
-import { POSTS } from "@/utils/apis"
-import axios from "axios"
-import { useEffect, useState } from "react"
 import LandingPage from "./Components/LandingPage";
 import Posts from "./Posts/page";
 

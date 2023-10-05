@@ -2,9 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import { Input, TextField } from '@mui/material';
-import Cookies from 'js-cookie';
 import axios from 'axios';
-import { BASE_URL, POST, UPDATE_POST } from '@/utils/apis';
+import { POST, UPDATE_POST } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
 
 export default function EditPost({params}: any){
