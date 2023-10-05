@@ -1,11 +1,12 @@
 'use client'
 import React, { useRef, useState } from 'react';
-import JoditEditor from 'jodit-react';
+// import JoditEditor from 'jodit-react';
 import { Input, TextField } from '@mui/material';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { CREATE_POST } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic'; // Import dynamic for conditional rendering
 
 export default function CreatePost(){
     const [content, setContent] = useState<string>('');
@@ -62,7 +63,8 @@ export default function CreatePost(){
                 }
             }
     }
-
+    
+    const DynamicJoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
     return(
         <div className='flex flex-col gap-5 items-center justify-center mt-32 mb-28'>
             <div className='flex flex-col gap-10 w-[500px] min-h-[600px] bg-slate-100 rounded-md p-5  max-md:w-5/6'>                
@@ -86,7 +88,7 @@ export default function CreatePost(){
                 onChange={handleImgChange}
                 inputProps={{ accept: 'image/*' }}
                 />
-                <JoditEditor
+                <DynamicJoditEditor
                 ref={editor}
                 value={content}
                 onBlur={(newContent) => setContent(newContent)}
