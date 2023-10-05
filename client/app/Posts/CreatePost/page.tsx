@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import { Input, TextField } from '@mui/material';
 import Cookies from 'js-cookie';
@@ -8,13 +8,22 @@ import { CREATE_POST } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
 
 export default function CreatePost(){
+    const [editorLoaded, setEditorLoaded] = useState<boolean>(false);
     const [content, setContent] = useState<string>('');
     const editor = useRef(null);
+    useEffect(() => {
+        import('jodit-react').then((JoditEditorModule) => {
+            const JoditEditor = JoditEditorModule.default;
+            setEditorLoaded(true);
+          });
+    }, []);
+
     const [selectedImg, setSelectedImg] = useState<File | undefined>(undefined);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const userName = Cookies.get('userName');
     const router = useRouter();
+
 
     const [form, setForm] = useState({
         title: '',
@@ -85,13 +94,13 @@ export default function CreatePost(){
                 onChange={handleImgChange}
                 inputProps={{ accept: 'image/*' }}
                 />
-                <JoditEditor
+                { editorLoaded && (<JoditEditor
                 ref={editor}
                 value={content}
                 onBlur={(newContent) => setContent(newContent)}
                 onChange={(newContent) => setContent(newContent)}
                 className='w-full h-full text-black'
-                />
+                />)}
                 <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
                 submit</button>
                 {error && <p className='text-red-500 bg-white p-5 rounded-md text-md'>{error}</p>}
