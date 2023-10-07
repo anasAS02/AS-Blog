@@ -49,7 +49,7 @@ export default function PostCard(props: PostCardProps){
         <div key={props.id} className='w-full flex justify-start items-center gap-5 max-md:flex-col max-md:items-start'>
             <Link href={`/Posts/${props.id}`}>
                 <Image className='rounded-md duration-300 hover:scale-105' src={SHOW_IMG+props.imgSrc}
-                width={300} height={100}
+                width={500} height={100}
                 alt='post thumbnail'/>
             </Link>
             <div className='flex flex-col items-start gap-2'>
