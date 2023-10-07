@@ -31,7 +31,7 @@ export default function Register(){
             Cookies.set('userName', userName);
             setForm({userName: '', password: ''})
             setError(null);
-            route.push('/');
+            router.push('/');
         }catch(err: any){
             setError(err.response.data.message)
         }
