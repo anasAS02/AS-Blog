@@ -21,3 +21,7 @@ body {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.878);
 }
+
+.items-start-important{
+  justify-items: flex-start !important;
+}
