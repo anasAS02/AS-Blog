@@ -86,7 +86,7 @@ export default function CreatePost(){
                 onChange={handleImgChange}
                 inputProps={{ accept: 'image/*' }}
                 />
-                {JoditEditor ? 
+{/*                 {JoditEditor ? 
                 <JoditEditor
                 ref={editor}
                 value={content}
@@ -95,7 +95,7 @@ export default function CreatePost(){
                 className='w-full h-full text-black'
                 />
                 :
-                <h2>Loading</h2>}
+                <h2>Loading</h2>} */}
                 <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
                 submit</button>
                 {error && <p className='text-red-500 bg-white p-5 rounded-md text-md'>{error}</p>}
