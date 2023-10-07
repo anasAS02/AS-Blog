@@ -28,7 +28,7 @@ export default function Header(){
         await axios.post(LOGOUT);
         Cookies.remove('token');
         Cookies.remove('userName');
-        router.push('/');
+        window.location.pathname = '/';
     }
 
     const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
