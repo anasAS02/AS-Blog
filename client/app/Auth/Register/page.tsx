@@ -7,10 +7,8 @@ import Link from 'next/link';
 import axios from 'axios'
 import { REGISTER } from '@/utils/apis';
 import Cookies from 'js-cookie';
-import { useRouter } from 'next/navigation';
 
 export default function Register(){
-    const router = useRouter();
     const [ form, setForm ] = useState({
             userName: '',
             password: ''
@@ -31,7 +29,7 @@ export default function Register(){
             Cookies.set('userName', userName);
             setForm({userName: '', password: ''})
             setError(null);
-            router.push('/');
+            window.location.pathname = '/';
         }catch(err: any){
             setError(err.response.data.message)
         }
