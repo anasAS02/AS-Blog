@@ -1,45 +1,25 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import JoditEditor from 'jodit-react';
 import { Input, TextField } from '@mui/material';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { CREATE_POST } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import DynamicJoditEditor from '@/app/Components/Jodit'; 
 
 export default function CreatePost(){
-    const [value, setValue] = useState <string>('');
-    
-    var toolbarOptions = [
-      ['bold', 'italic', 'underline', 'strike'],   
-      ['blockquote', 'code-block'],
-    
-      [{ 'header': 1 }, { 'header': 2 }],               
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          
-      [{ 'direction': 'rtl' }],                         
-      ['link', 'image'],
-      [{ 'size': ['small', false, 'large', 'huge'] }],  
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    
-      [{ 'color': [] }, { 'background': [] }],          
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-    
-      ['clean']                                         
-    ];
-
-    const module = {
-      toolbar: toolbarOptions,
-    }
+    const [content, setContent] = useState<string>('');
+    const handleEditorChange = (newContent: string) => {
+        setContent(newContent);
+    };
 
     const [selectedImg, setSelectedImg] = useState<File | undefined>(undefined);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const userName = Cookies.get('userName');
     const router = useRouter();
+
 
     const [form, setForm] = useState({
         title: '',
@@ -58,19 +38,17 @@ export default function CreatePost(){
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if(form.title == '' || form.summary == '' || value == '' || selectedImg == undefined){
+        if(form.title == '' || form.summary == '' || content == '' || selectedImg == undefined){
             setError('All fields are required!')
         }
         const formData = new FormData();
             if (selectedImg) {
                 formData.append('thumbnail', selectedImg);
             }
-
             formData.append('title', form.title)
             formData.append('summary', form.summary)
-            formData.append('content', value)
+            formData.append('content', content)
             formData.append('userName', userName || 'unknown')
-
             try{
                 await axios.post(CREATE_POST, formData);
                 setError(null);
@@ -112,7 +90,7 @@ export default function CreatePost(){
                 onChange={handleImgChange}
                 inputProps={{ accept: 'image/*' }}
                 />
-                <ReactQuill modules={module} theme="snow" value={value} onChange={setValue} />
+                <DynamicJoditEditor value={content} onChange={handleEditorChange} />
                 <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
                 submit</button>
                 {error && <p className='text-red-500 bg-white p-5 rounded-md text-md'>{error}</p>}

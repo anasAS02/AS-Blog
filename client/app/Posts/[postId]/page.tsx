@@ -92,7 +92,7 @@ export default function Post({params}:any){
                  <Typography variant="h5">Comments</Typography>
                     <List>
                         {comments?.map((comment: commentProps, i) => (
-                        <ListItem key={i} className='flex flex-col items-start'>
+                        <li key={i} className='flex flex-col items-start'>
                             <span className='flex gap-1'>
                                 <AccountCircleIcon className='text-4xl' />
                                 <span className='flex gap-5 items-center text-gray-300 text-sm'>
@@ -111,7 +111,7 @@ export default function Post({params}:any){
                                     </span>
                                 }
                             </span>
-                        </ListItem>
+                        </li>
                         )) }
                     </List>
                     <span className='flex justify-between items-center gap-5'>
