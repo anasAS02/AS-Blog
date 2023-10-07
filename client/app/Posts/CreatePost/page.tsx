@@ -112,7 +112,20 @@ export default function CreatePost(){
                 onChange={handleImgChange}
                 inputProps={{ accept: 'image/*' }}
                 />
+<<<<<<< HEAD
                 <ReactQuill modules={module} theme="snow" value={value} onChange={setValue} />
+=======
+{/*                 {JoditEditor ? 
+                <JoditEditor
+                ref={editor}
+                value={content}
+                onBlur={(newContent) => setContent(newContent)}
+                onChange={(newContent) => setContent(newContent)}
+                className='w-full h-full text-black'
+                />
+                :
+                <h2>Loading</h2>} */}
+>>>>>>> 23c98f9c7b9268169dd2edc5ef254023ad780692
                 <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
                 submit</button>
                 {error && <p className='text-red-500 bg-white p-5 rounded-md text-md'>{error}</p>}
