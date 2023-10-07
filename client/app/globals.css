@@ -23,5 +23,5 @@ body {
 }
 
 .items-start-important{
-  justify-items: flex-start !important;
+  align-items: flex-start !important;
 }
