@@ -72,6 +72,7 @@ export default function Post({params}:any){
         try{
             await axios.put(UPDATE_COMMENT + oldComment._id, {text: comment})
             setEditComment(false);
+            location.reload();
         }catch(err){
             console.log(err)
         }
@@ -79,6 +80,7 @@ export default function Post({params}:any){
         
     const handleDelete = async (id: any) => {
         await axios.delete(DELETE_COMMENT + id);
+        location.reload();
     }
 
     return(
