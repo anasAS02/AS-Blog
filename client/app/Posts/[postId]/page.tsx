@@ -51,9 +51,9 @@ export default function Post({params}:any){
         }
         try{        
             await axios.post(CREATE_COMMENT, data)
-            console.log('Comment Added')
             setComment('')
             setError(null);
+            location.reload();
         }catch(err: any){
             setError(err.response?.data.message)
         }
