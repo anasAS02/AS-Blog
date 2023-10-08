@@ -18,7 +18,7 @@ export default function MyPosts(){
     return(
         <>
         {isLoggedIn ?
-            <div className={`w-full ${posts?.length > 0 ? '' : 'h-full'} flex flex-col gap-10 mt-36 p-5 mb-56`}>
+            <div className={`w-full ${posts?.length > 0 ? '' : 'h-full'} flex flex-col gap-10 mt-36 p-5 mb-60`}>
             <div className='flex gap-5 items-center justify-between'>
                 <h2 className='text-white text-4xl font-bold  max-md:text-2xl'>My Posts</h2>
                 <Link className='p-3 bg-zinc-800 duration-300 text-white hover:bg-zinc-700' href='/Posts/CreatePost'>Create Post</Link>
