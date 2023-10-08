@@ -68,7 +68,7 @@ export default function CreatePost(){
     }
     
     return(
-        <div className='flex flex-col gap-5 items-center justify-center mt-32 mb-28'>
+        <div className='flex flex-col gap-5 items-center justify-center mt-32 mb-32'>
             <div className='flex flex-col gap-10 w-[500px] min-h-[600px] bg-slate-100 rounded-md p-5  max-md:w-5/6'>                
                 <TextField
                 label="title"
