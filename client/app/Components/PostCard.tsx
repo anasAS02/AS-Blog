@@ -55,6 +55,7 @@ export default function PostCard(props: PostCardProps){
             <div className='flex flex-col items-start gap-2'>
                 <h4 className='text-yellow-500 text-xl max-md:text-sm'>{props.title}</h4>
                 <p className='text-white text-xl max-md:text-sm'>{props.summary}</p>
+                <p className='text-slate-400 text-xl max-md:text-sm'>By: {props.userName}</p>
                 <p className='text-gray-500'>{props.createdAt.substring(0, props.createdAt.indexOf('T'))}</p>
                 {isLoggedIn && userName == props.userName &&
                     <span className='flex items-center'>
