@@ -21,7 +21,7 @@ const SearchResult = () => {
   }, [keyword])
   
   return (
-    <div className='w-full h-full flex flex-col gap-10 mt-36 p-5 mb-52'>
+    <div className='w-full flex flex-col gap-10 mt-36 p-5 mb-64'>
       <h2 className='text-white text-4xl font-bold'>Search Results</h2>
       {posts? 
       <div className='grid grid-cols-1 gap-10'>
