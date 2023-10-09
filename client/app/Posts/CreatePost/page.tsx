@@ -1,6 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
-import JoditEditor from 'jodit-react';
+import React, { useState } from 'react';
 import { Input, TextField } from '@mui/material';
 import Cookies from 'js-cookie';
 import axios from 'axios';
