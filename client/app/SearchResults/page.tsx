@@ -4,8 +4,10 @@ import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { SEARCH } from '@/utils/apis';
 import PostCard, { postProps } from "../Components/PostCard";
+import Cookies from 'js-cookie';
 
 const SearchResult = () => {
+  const userName = Cookies.get('userName');
   const [posts, setPosts] = useState<null | []>(null);
   const searchParams = useSearchParams()
  
@@ -26,7 +28,7 @@ const SearchResult = () => {
       {posts && posts.length > 0 ?
       <div className='grid grid-cols-1 gap-10'>
                 {posts?.map((post: postProps) => (
-                    <PostCard key={post._id} id={post._id} userName={post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
+                    <PostCard key={post._id} id={post._id} userName={post.userName == userName ? 'me' : post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
                 ))}
             </div>
         :
