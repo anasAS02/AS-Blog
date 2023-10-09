@@ -55,13 +55,15 @@ export default function Login(){
                 value={form.password}
                 onChange={handleFormChange}
             />
-            <Button
-                className='w-fit text-white bg-blue-600 hover:bg-blue-500'
-                onClick={handleLogin}
-            >
-                Login
-            </Button>
-            <span className='text-sm ml-3 text-black'>Don&apos;t have an account ? <Link href='/Auth/Register' className='underline hover:text-yellow-500 duration-200'>Sign up now!</Link></span>
+            <div className='flex items-center max-md:flex-col max-md:items-start max-md:justify-start gap-2'>
+                <Button
+                    className='w-fit text-white bg-blue-600 hover:bg-blue-500'
+                    onClick={handleLogin}
+                >
+                    Login
+                </Button>
+                <span className='text-sm ml-3 text-black'>Don&apos;t have an account ? <Link href='/Auth/Register' className='underline hover:text-yellow-500 duration-200'>Sign up now!</Link></span>
+            </div>
             {error && <p className='text-red-500 text-md mt-3'>{error}</p>}
             </div>
         </div>
