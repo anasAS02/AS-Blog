@@ -30,7 +30,7 @@ const SearchResult = () => {
                 ))}
             </div>
         :
-        <h2 className='text-red-500 text-3xl h-full'>No results found.</h2>
+        <h2 className='text-red-500 text-4xl font-bold h-full'>No results found.</h2>
         }
     </div>
   );
