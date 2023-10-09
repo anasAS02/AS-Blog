@@ -23,7 +23,7 @@ const SearchResult = () => {
   return (
     <div className='w-full flex flex-col gap-10 mt-36 p-5 mb-72'>
       <h2 className='text-white text-4xl font-bold'>Search Results</h2>
-      {posts? 
+      {posts && posts.length > 0 ?
       <div className='grid grid-cols-1 gap-10'>
                 {posts?.map((post: postProps) => (
                     <PostCard key={post._id} id={post._id} userName={post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
