@@ -56,13 +56,15 @@ export default function Register(){
                 value={form.password}
                 onChange={handleFormChange}
             />
-            <Button
-                className='w-fit text-white bg-blue-600 hover:bg-blue-500'
-                onClick={handleRegister}
-            >
-                Register
-            </Button>
-            <span className='text-sm ml-3 text-black'>Do you already have an account? <Link href='/Auth/Login' className='underline hover:text-yellow-500 duration-200'>Login now!</Link></span>
+            <div className='flex items-center max-md:flex-col max-md:items-start max-md:justify-start gap-2'>
+                <Button
+                    className='w-fit text-white bg-blue-600 hover:bg-blue-500'
+                    onClick={handleRegister}
+                >
+                    Register
+                </Button>
+                <span className='text-sm ml-3 text-black'>Do you already have an account? <Link href='/Auth/Login' className='underline hover:text-yellow-500 duration-200'>Login now!</Link></span>
+            </div>
             {error && <p className='text-red-500 text-md mt-3'>{error}</p>}
             </div>
         </div>
