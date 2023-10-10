@@ -5,6 +5,7 @@ import { Input, TextField } from '@mui/material';
 import axios from 'axios';
 import { POST, UPDATE_POST } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 export default function EditPost({params}: any){
     const [content, setContent] = useState<string>('');
@@ -12,9 +13,10 @@ export default function EditPost({params}: any){
     const [selectedImg, setSelectedImg] = useState<File | undefined>(undefined);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
+    const [postUserName, setPostUserName] = useState<string | null>(null);
     const router = useRouter();
     const postId = params.postId;
-    
+    const userName = Cookies.get('userName');
     const [form, setForm] = useState({
         title: '',
         summary: ''
@@ -26,7 +28,8 @@ export default function EditPost({params}: any){
                 const res = await axios.get(POST + postId);
                 const postData = res.data.data.foundPost;
                 setForm({title: postData.title, summary: postData.summary}),
-                setContent(postData.content)
+                setContent(postData.content),
+                setPostUserName(userName || 'unknown');
             }catch(err){
                 console.log(err)
             }
@@ -77,6 +80,7 @@ export default function EditPost({params}: any){
     }
 
     return(
+        userName == postUserName ? 
         <div className='flex flex-col gap-5 items-center justify-center  mt-32 mb-28'>
             <div className='flex flex-col gap-10 w-[500px] min-h-[600px] bg-slate-100 rounded-md p-5  max-md:w-5/6'>
             <TextField
@@ -114,5 +118,7 @@ export default function EditPost({params}: any){
                     {success && <p className='text-green-500 bg-white p-5 rounded-md text-md'>{success}</p>}
                 </div>
         </div>
+        :
+        <></>
     )
 }
