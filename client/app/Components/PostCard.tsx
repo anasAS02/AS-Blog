@@ -59,7 +59,6 @@ export default function PostCard(props: PostCardProps){
                 <p className='text-gray-500'>{props.createdAt.substring(0, props.createdAt.indexOf('T'))}</p>
                 {isLoggedIn && userName == props.userName &&
                     <span className='flex items-center'>
-                        <h1>Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
                         <Link href={`/Posts/EditPost/${postId}`} >
                             <EditIcon className='text-slate-100 text-md duration-200 hover:text-blue-400 cursor-pointer' />
                         </Link>
