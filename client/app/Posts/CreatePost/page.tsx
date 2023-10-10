@@ -91,7 +91,7 @@ export default function CreatePost(){
                 />
                 <DynamicJoditEditor value={content} onChange={handleEditorChange} />
                 <button onClick={handleSubmit} className='w-[150px] h-[40px] bg-blue-500 text-white flex justify-center items-center rounded-md'>
-                submit</button>
+                Create</button>
                 {error && <p className='text-red-500 bg-white p-5 rounded-md text-md'>{error}</p>}
                 {success && <p className='text-green-500 bg-white p-5 rounded-md text-md'>{success}</p>}
             </div>
