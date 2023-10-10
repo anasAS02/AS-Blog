@@ -90,7 +90,7 @@ export default function Post({params}:any){
             </div>
             <div className='h-full p-14' dangerouslySetInnerHTML={{ __html: post?.content }}>
             </div>
-            <Box className='bg- text-whote p-5 rounded-md mb-8 w-full'>
+            <Box className='p-5 rounded-md mb-8 w-full'>
                  <Typography variant="h5">Comments</Typography>
                     <List>
                         {comments?.map((comment: commentProps, i) => (
