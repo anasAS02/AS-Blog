@@ -21,15 +21,16 @@ export default function EditPost({params}: any){
         title: '',
         summary: ''
     })
-    
     useEffect(() => {
         const fetchData = async () => {
             try{
                 const res = await axios.get(POST + postId);
-                const postData = res.data.data.foundPost;
-                setForm({title: postData.title, summary: postData.summary}),
-                setContent(postData.content),
-                setPostUserName(userName || 'unknown');
+                if(res.data.data.foundPost.userName == userName){
+                    const postData = res.data.data.foundPost;
+                    setForm({title: postData.title, summary: postData.summary}),
+                    setContent(postData.content),
+                    setPostUserName(postData.userName || 'unknown');
+                }
             }catch(err){
                 console.log(err)
             }
@@ -61,7 +62,6 @@ export default function EditPost({params}: any){
 
         try{
             await axios.put(UPDATE_POST + postId, data);
-
             setError(null);
             setSuccess('Post has been updated!')
             setTimeout(() => {
@@ -119,6 +119,6 @@ export default function EditPost({params}: any){
                 </div>
         </div>
         :
-        <></>
+        <div className='h-full'></div>
     )
 }
