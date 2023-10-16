@@ -1,16 +1,20 @@
 'use client'
 import { POSTS } from "@/utils/apis";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import Loading from "../Components/Loading";
 import PostCard, { postProps } from "../Components/PostCard";
 
 export default function Posts(){
-    const userName = Cookies.get('userName');
     const [posts, setPosts] = useState<any>();
+    const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {
       axios.get(POSTS).then((data) => setPosts(data.data.data.posts))
     }, [])
+
+    if(loading){
+        return <Loading />
+    }
     
     return(
         <div className='w-full h-full flex flex-col gap-10 mt-16'>
