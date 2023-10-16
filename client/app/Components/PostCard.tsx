@@ -1,3 +1,4 @@
+'use client'
 import { DELETE_POST, MY_POSTS, SHOW_IMG } from "@/utils/apis";
 import Image from "next/image";
 import Link from "next/link";
