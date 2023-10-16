@@ -41,7 +41,7 @@ export default function PostCard(props: PostCardProps){
                 const res = await axios.get(MY_POSTS + userName);
                 const data = res.data.data.posts;
                 setPosts(data)
-                setLoading(false);
+                setLoading(true);
             }catch(err){
                 console.log(err)
             }
