@@ -6,10 +6,20 @@ import PostCard, { postProps } from "../Components/PostCard";
 
 export default function Posts(){
     const [posts, setPosts] = useState<any>();
+    const [loading, setLpading] = useState<boolean>(true);
     useEffect(() => {
       axios.get(POSTS).then((data) => setPosts(data.data.data.posts))
+        setLoading(false);
     }, [])
 
+    if(loading){
+        return(
+            <div className="flex items-center justify-center h-screen">
+                <div className="animate-spin rounded-full border-t-4 border-b-4 border-blue-500 h-16 w-16"></div>
+            </div>
+        )    
+    }
+    
     return(
         <div className='w-full h-full flex flex-col gap-10 mt-16'>
             <h2 className='text-white text-4xl font-bold max-md:text-2xl'>Recent Posts</h2>
