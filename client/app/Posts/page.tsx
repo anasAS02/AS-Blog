@@ -8,9 +8,17 @@ export default function Posts(){
     const [posts, setPosts] = useState<any>();
     const [loading, setLpading] = useState<boolean>(true);
     useEffect(() => {
-      axios.get(POSTS).then((data) => setPosts(data.data.data.posts))
-        setLoading(false);
-    }, [])
+        const getPosts = async () => {
+            setLoading(true);
+            try{
+                await axios.get(POSTS).then((data) => setPosts(data.data.data.posts));
+                setLoading(false);
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getPosts();
+    }, [posts])
 
     if(loading){
         return(
