@@ -65,10 +65,11 @@ const createPost = asyncWrapper(
 const updatePost = asyncWrapper(
     async(req, res) => {
         const foundedPost = req.params.postId;
-        const {thumbnail} = req.body;
-        
-        const updatePost = await post.updateOne({_id: foundedPost}, {$set: {... req.body, thumbnail: req.file.filename}})
-        res.status(200).json({status: httpStatusText.SUCCESS, data: {updatePost}})
+        if(req.file){
+            await post.updateOne({_id: foundedPost}, {$set: {... req.body, thumbnail: req.file.filename}})
+        }
+        await post.updateOne({_id: foundedPost}, {$set: {... req.body}})
+        res.status(200).json({status: httpStatusText.SUCCESS, data: null})
     }
 )
 

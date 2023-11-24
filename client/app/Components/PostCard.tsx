@@ -7,7 +7,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useGlobalContext } from "../Context/UserContext";
 import Cookies from "js-cookie";
 import axios from "axios";
-import Loading from './Loading';
 import { useEffect, useState } from "react";
 const userName = Cookies.get('userName');
 
@@ -33,15 +32,13 @@ export default function PostCard(props: PostCardProps){
     const { isLoggedIn } = useGlobalContext();
     const postId = props.id;
     const [posts, setPosts] = useState<any>()
-    const [loading, setLoading] = useState<boolean>(true);
     
     useEffect(() => {
         const fetchData = async () => {
             try{
                 const res = await axios.get(MY_POSTS + userName);
                 const data = res.data.data.posts;
-                setPosts(data)
-                setLoading(false)
+                setPosts(data);
             }catch(err){
                 console.log(err)
             }
@@ -56,10 +53,6 @@ export default function PostCard(props: PostCardProps){
         }catch(err){
             console.log(err)
         }
-    }
-
-    if(loading){
-        return <Loading />;
     }
 
     return(
