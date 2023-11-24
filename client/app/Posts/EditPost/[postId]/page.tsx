@@ -70,6 +70,7 @@ export default function EditPost({params}: any){
             }, 2000)
 
         }catch(err: any){
+            console.log(err.response?.data.message)
             setError(err.response?.data.message)
             if(err.response.status = 500){
                 setError('post thumbnail is required!');

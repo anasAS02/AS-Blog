@@ -6,26 +6,15 @@ const {validationResult} = require('express-validator');
 
 const getAllPosts = asyncWrapper(
     async(req, res) => {
-        const query = req.query;
-        const limit = query.limit || 10;
-        const page = query.page || 1;
-        const skip = (page - 1) * limit;
-
-        const posts = await post.find({}, {"__v": false}).sort({ createdAt: -1 }).limit(limit).skip(skip);
+        const posts = await post.find({}, {"__v": false}).sort({ createdAt: -1 });
         res.status(200).json({status: httpStatusText.SUCCESS, data: {posts}})
     }
 )
 
 const getUserPosts = asyncWrapper(
     async(req, res) => {
-        const query = req.query;
-        const limit = query.limit || 10;
-        const page = query.page || 1;
-        const skip = (page - 1) * limit;
-        
         const userName = req.params.userName;
-
-        const posts = await post.find({userName: userName}, {"__v": false}).sort({ createdAt: -1 }).limit(limit).skip(skip);
+        const posts = await post.find({userName: userName}, {"__v": false}).sort({ createdAt: -1 });
 
         res.status(200).json({status: httpStatusText.SUCCESS, data: {posts}})
     }
@@ -75,7 +64,7 @@ const updatePost = asyncWrapper(
 
 const deletePost = asyncWrapper(
     async(req, res) => {
-        const deletePost = await post.deleteOne({_id: req.params.postId});
+        await post.deleteOne({_id: req.params.postId});
         res.status(200).json({status: httpStatusText.SUCCESS, data: null})
     }
 )
