@@ -94,8 +94,11 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon index",
+    "start": "node index.js",
     "run": "nodemon index"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [],
   "author": "",
