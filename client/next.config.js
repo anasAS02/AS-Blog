@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['as-blog-production.up.railway.app'],
-      }
-}
-module.exports = nextConfig
+  images: {
+      domains: ['as-blog-gr5w.onrender.com'],
+  },
+};
+
+module.exports = nextConfig;

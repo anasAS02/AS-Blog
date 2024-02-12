@@ -18,6 +18,7 @@ export default function Posts(){
             }
         }
         getPosts();
+        showDelayAlert();
     }, [])
 
     if(loading){
@@ -27,6 +28,12 @@ export default function Posts(){
             </div>
         )    
     }
+
+    const showDelayAlert = () => {
+        setTimeout(() => {
+          alert("Please note: Data may take a few seconds to load due to server limitations.");
+        }, 3000);
+      };
     
     return(
         <div className='w-full h-full flex flex-col gap-10 mt-16'>
