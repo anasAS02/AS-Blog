@@ -20,10 +20,6 @@ export default function Posts(){
         getPosts();
     }, []);
 
-    useEffect(() => {
-        alert("Please note: Data may take a few seconds to load due to server limitations.");
-      }, [])    
-
     if(loading){
         return(
             <div className="flex items-center justify-center h-screen">
