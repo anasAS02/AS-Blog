@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-      domains: ['as-blog-gr5w.onrender.com'],
+      domains: ['as-blog-favy.onrender.com'],
   },
 };
 
