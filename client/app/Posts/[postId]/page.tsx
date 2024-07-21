@@ -12,6 +12,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useGlobalContext } from "@/app/Context/UserContext";
 import Link from "next/link";
+import Custom404 from "../../not-found";
 
 export default function Post({params}:any){
 
@@ -84,7 +85,7 @@ export default function Post({params}:any){
     }
 
     if(!post) {
-        return;
+        return <Custom404 />
     }
 
     return(
