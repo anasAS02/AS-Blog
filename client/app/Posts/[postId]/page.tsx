@@ -17,7 +17,7 @@ export default function Post({params}:any){
 
     const postId = params.postId;
     const userName = Cookies.get('userName');
-    const [post, setPost] = useState<any>();
+    const [post, setPost] = useState<any>(null);
     const [comment, setComment] = useState<string>('')
     const [comments, setComments] = useState<commentProps[]>([]);
     const [oldComment, setOldComment] = useState<any>()
@@ -81,6 +81,10 @@ export default function Post({params}:any){
     const handleDelete = async (id: any) => {
         await axios.delete(DELETE_COMMENT + id);
         location.reload();
+    }
+
+    if(!post) {
+        return;
     }
 
     return(
