@@ -6,6 +6,7 @@ import axios from "axios";
 import { MY_POSTS } from "@/utils/apis";
 import Cookies from "js-cookie";
 import PostCard, { postProps } from "@/app/Components/PostCard";
+import { Slide } from "react-awesome-reveal";
 
 export default function MyPosts(){
     const [posts, setPosts] = useState<any>()
@@ -27,7 +28,9 @@ export default function MyPosts(){
                 posts?.length > 0 ?
                 <div className='grid grid-cols-1 gap-10'>
                 {posts?.map((post: postProps) => (
+                  <Slide>
                     <PostCard key={post._id} id={post._id} userName={post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
+                  </Slide>
                 ))}
                 </div>
                 :

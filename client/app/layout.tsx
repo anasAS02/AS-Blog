@@ -19,15 +19,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+  const date = new Date();
+  let year = date.getFullYear();
+
   return (
     <html lang="en">
-      
       <body className={inter.className}>
         <GlobalContextProvider>
           <Header />
           {children}
           <footer className='w-full h-14 bg-zinc-100 opacity-90 flex items-center justify-center'>
-            <p className='text-black text-1xl max-md:text-sm'>Copyrights reserved to <span className='font-bold text-red-500'>Anas</span> - 2023&copy;</p>
+            <p className='text-black text-1xl max-md:text-sm'>Copyrights reserved to <span className='font-bold text-red-500'>Anas</span> - {year}&copy;</p>
           </footer>
         </GlobalContextProvider>
       </body>

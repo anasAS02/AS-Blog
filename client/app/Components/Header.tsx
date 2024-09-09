@@ -6,6 +6,7 @@ import axios from "axios";
 import { LOGOUT } from "@/utils/apis";
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Header(){
     const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
@@ -48,7 +49,7 @@ export default function Header(){
                     <Link className='text-gray-700 hover:text-yellow-500 duration-200' href='/'>Home</Link>
                     <Link className='text-gray-700 hover:text-yellow-500 duration-200' href='/Posts/MyPosts'>My posts</Link>
                     {isLoggedIn ? 
-                    <button onClick={handleLogout} className='bg-transparent duration-200 text-gray-700 hover:text-red-500'>Logout</button>
+                        <LogoutIcon onClick={handleLogout} className='cursor-pointer bg-transparent duration-200 text-gray-700 hover:text-red-500'></LogoutIcon>
                     :
                     <Link className='text-gray-700 hover:text-yellow-500 duration-200' href='/Auth/Login'>Login</Link>
                 }
