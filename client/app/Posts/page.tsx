@@ -34,7 +34,7 @@ export default function Posts(){
             <h2 className='text-white text-4xl font-bold max-md:text-2xl'>Recent Posts</h2>
             <div className='grid grid-cols-1 gap-10'>
                 {posts?.map((post: postProps) => (
-                    <Slide>
+                    <Slide key={post._id}>
                         <PostCard key={post._id} id={post._id} userName={post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
                     </Slide>
                 ))}

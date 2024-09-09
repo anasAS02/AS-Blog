@@ -29,7 +29,7 @@ const SearchResult = () => {
       {posts && posts.length > 0 ?
       <div className='grid grid-cols-1 gap-10'>
                 {posts?.map((post: postProps) => (
-                  <Slide>
+                  <Slide key={post._id}>
                     <PostCard key={post._id} id={post._id} userName={post.userName == userName ? 'me' : post.userName} title={post.title} imgSrc={post.thumbnail} summary={post.summary} createdAt={post.createdAt}/>
                   </Slide>
                 ))}

@@ -102,7 +102,7 @@ export default function Post({params}:any){
                  <Typography variant="h5">Comments</Typography>
                     <List>
                         {comments?.map((comment: commentProps, i) => (
-                            <Slide>
+                            <Slide key={i}>
                                 <ListItem key={i} className='flex flex-col items-start-important'>
                                     <span className='flex gap-1'>
                                         <AccountCircleIcon className='text-4xl' />
